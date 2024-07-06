@@ -6,7 +6,7 @@ from rclpy.node import Node
 
 class DummyNode(Node):
     def __init__(self):
-        print("node int")
+        print("node int oh YEAH")
         super().__init__('Mobility_node')
 
 def main(args=None):

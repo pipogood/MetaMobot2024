@@ -1,3 +1,1 @@
-source;share/mobotrun/environment/ament_prefix_path.sh
-source;share/mobotrun/environment/path.sh
-source;share/mobotrun/environment/pythonpath.sh
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/ament_cmake_environment_hooks/local_setup.dsv
