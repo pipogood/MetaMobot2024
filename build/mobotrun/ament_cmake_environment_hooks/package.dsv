@@ -1,0 +1,4 @@
+source;share/mobotrun/local_setup.bash
+source;share/mobotrun/local_setup.dsv
+source;share/mobotrun/local_setup.sh
+source;share/mobotrun/local_setup.zsh

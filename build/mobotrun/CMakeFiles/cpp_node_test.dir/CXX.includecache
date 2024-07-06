@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/include/mobotrun/cpp_header.hpp
+
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/src/cpp_node.cpp
+mobotrun/cpp_header.hpp
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/src/mobotrun/cpp_header.hpp
+iostream
+-
+

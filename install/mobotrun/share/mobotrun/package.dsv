@@ -1,0 +1,11 @@
+source;share/mobotrun/hook/cmake_prefix_path.ps1
+source;share/mobotrun/hook/cmake_prefix_path.dsv
+source;share/mobotrun/hook/cmake_prefix_path.sh
+source;share/mobotrun/hook/pythonpath.ps1
+source;share/mobotrun/hook/pythonpath.dsv
+source;share/mobotrun/hook/pythonpath.sh
+source;share/mobotrun/local_setup.bash
+source;share/mobotrun/local_setup.dsv
+source;share/mobotrun/local_setup.ps1
+source;share/mobotrun/local_setup.sh
+source;share/mobotrun/local_setup.zsh

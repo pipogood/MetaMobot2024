@@ -1,0 +1,10 @@
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/install/strip.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/install/local.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/install.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/list_install_components.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/rebuild_cache.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/edit_cache.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/test.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/cpp_node_test.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/mobotrun_uninstall.dir
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/CMakeFiles/uninstall.dir

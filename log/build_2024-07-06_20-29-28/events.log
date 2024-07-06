@@ -1,0 +1,230 @@
+[0.000000] (-) TimerEvent: {}
+[0.002108] (mobotrun) JobQueued: {'identifier': 'mobotrun', 'dependencies': OrderedDict()}
+[0.002751] (mobotrun) JobStarted: {'identifier': 'mobotrun'}
+[0.068707] (mobotrun) JobProgress: {'identifier': 'mobotrun', 'progress': 'cmake'}
+[0.072617] (mobotrun) Command: {'cmd': ['/usr/bin/cmake', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun', '-DCMAKE_INSTALL_PREFIX=/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun'], 'cwd': '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'fiborobotlab'), ('SSH_AGENT_PID', '2908'), ('XDG_SESSION_TYPE', 'x11'), ('GSCAM_CONFIG', 'v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-raw, width=320, height=240, framerate=30/1 ! videoconvert ! video/x-raw, format=BGRx'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fiborobotlab/unitree_foxy/install/unitree_legged_real/lib:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib:/home/fiborobotlab/unitree_foxy/install/gscam2/lib:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:'), ('HOME', '/home/fiborobotlab'), ('OLDPWD', '/home/fiborobotlab/Metamobot_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('JETSON_L4T', '35.1.0'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('MANAGERPID', '2504'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install:/home/fiborobotlab/unitree_foxy/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'fiborobotlab'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421222040726'), ('JOURNAL_STREAM', '7:56411'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'fiborobotlab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/fiborobotlab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/2974,unix/ubuntu:/tmp/.ICE-unix/2974'), ('INVOCATION_ID', 'cf0609d1b0bd4b5085520ea0969700eb'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/cfcb043f_dac1_4ace_947b_b5b4cf96259c'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('GNOME_TERMINAL_SERVICE', ':1.90'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/home/fiborobotlab/unitree_foxy/install/hand_detection:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('JETSON_JETPACK', '5.0.2 GA'), ('CMAKE_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/hand_detection:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[0.098823] (-) TimerEvent: {}
+[0.205876] (-) TimerEvent: {}
+[0.307131] (-) TimerEvent: {}
+[0.408250] (-) TimerEvent: {}
+[0.510949] (-) TimerEvent: {}
+[0.614580] (-) TimerEvent: {}
+[0.716551] (-) TimerEvent: {}
+[0.730599] (mobotrun) StdoutLine: {'line': b'-- The C compiler identification is GNU 9.4.0\n'}
+[0.816833] (-) TimerEvent: {}
+[0.918044] (-) TimerEvent: {}
+[1.021542] (-) TimerEvent: {}
+[1.125491] (-) TimerEvent: {}
+[1.229295] (-) TimerEvent: {}
+[1.268036] (mobotrun) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 9.4.0\n'}
+[1.310598] (mobotrun) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.329717] (-) TimerEvent: {}
+[1.430861] (-) TimerEvent: {}
+[1.532935] (-) TimerEvent: {}
+[1.638446] (-) TimerEvent: {}
+[1.739514] (-) TimerEvent: {}
+[1.842796] (-) TimerEvent: {}
+[1.845264] (mobotrun) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.858921] (mobotrun) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.942785] (-) TimerEvent: {}
+[2.043882] (-) TimerEvent: {}
+[2.146633] (-) TimerEvent: {}
+[2.248468] (-) TimerEvent: {}
+[2.350311] (-) TimerEvent: {}
+[2.383910] (mobotrun) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.450640] (-) TimerEvent: {}
+[2.470606] (mobotrun) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.473460] (mobotrun) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.491282] (mobotrun) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[2.550897] (-) TimerEvent: {}
+[2.652644] (-) TimerEvent: {}
+[2.754530] (-) TimerEvent: {}
+[2.855714] (-) TimerEvent: {}
+[2.957247] (-) TimerEvent: {}
+[3.046929] (mobotrun) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[3.052912] (mobotrun) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[3.057986] (-) TimerEvent: {}
+[3.159397] (-) TimerEvent: {}
+[3.260774] (-) TimerEvent: {}
+[3.362037] (-) TimerEvent: {}
+[3.463098] (-) TimerEvent: {}
+[3.564225] (-) TimerEvent: {}
+[3.611942] (mobotrun) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[3.664589] (-) TimerEvent: {}
+[3.695555] (mobotrun) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[3.698433] (mobotrun) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[3.723526] (mobotrun) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[3.765170] (-) TimerEvent: {}
+[3.866891] (-) TimerEvent: {}
+[3.890898] (mobotrun) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[3.892792] (mobotrun) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.967446] (-) TimerEvent: {}
+[4.068417] (-) TimerEvent: {}
+[4.169617] (-) TimerEvent: {}
+[4.271833] (-) TimerEvent: {}
+[4.372759] (-) TimerEvent: {}
+[4.474470] (-) TimerEvent: {}
+[4.575460] (-) TimerEvent: {}
+[4.676476] (-) TimerEvent: {}
+[4.777340] (-) TimerEvent: {}
+[4.878311] (-) TimerEvent: {}
+[4.980036] (-) TimerEvent: {}
+[5.081373] (-) TimerEvent: {}
+[5.182425] (-) TimerEvent: {}
+[5.250005] (mobotrun) StdoutLine: {'line': b'-- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)\n'}
+[5.282677] (-) TimerEvent: {}
+[5.383748] (-) TimerEvent: {}
+[5.484841] (-) TimerEvent: {}
+[5.586004] (-) TimerEvent: {}
+[5.596707] (mobotrun) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.653223] (mobotrun) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[5.686249] (-) TimerEvent: {}
+[5.787307] (-) TimerEvent: {}
+[5.888396] (-) TimerEvent: {}
+[5.990705] (-) TimerEvent: {}
+[6.100329] (-) TimerEvent: {}
+[6.204441] (-) TimerEvent: {}
+[6.306007] (-) TimerEvent: {}
+[6.382038] (mobotrun) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[6.406195] (-) TimerEvent: {}
+[6.507218] (-) TimerEvent: {}
+[6.551472] (mobotrun) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[6.607655] (-) TimerEvent: {}
+[6.710769] (-) TimerEvent: {}
+[6.812152] (-) TimerEvent: {}
+[6.913789] (-) TimerEvent: {}
+[7.014895] (-) TimerEvent: {}
+[7.073554] (mobotrun) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[7.115130] (-) TimerEvent: {}
+[7.216223] (-) TimerEvent: {}
+[7.317369] (-) TimerEvent: {}
+[7.418522] (-) TimerEvent: {}
+[7.481520] (mobotrun) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)\n'}
+[7.491723] (mobotrun) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.497521] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[7.518747] (-) TimerEvent: {}
+[7.619756] (-) TimerEvent: {}
+[7.720782] (-) TimerEvent: {}
+[7.822651] (-) TimerEvent: {}
+[7.923860] (-) TimerEvent: {}
+[8.024978] (-) TimerEvent: {}
+[8.048974] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[8.050931] (mobotrun) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[8.125274] (-) TimerEvent: {}
+[8.226285] (-) TimerEvent: {}
+[8.327199] (-) TimerEvent: {}
+[8.428305] (-) TimerEvent: {}
+[8.529567] (-) TimerEvent: {}
+[8.591241] (mobotrun) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[8.593587] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[8.629763] (-) TimerEvent: {}
+[8.731086] (-) TimerEvent: {}
+[8.832112] (-) TimerEvent: {}
+[8.933216] (-) TimerEvent: {}
+[9.010646] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[9.011715] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[9.033480] (-) TimerEvent: {}
+[9.134448] (-) TimerEvent: {}
+[9.235536] (-) TimerEvent: {}
+[9.336663] (-) TimerEvent: {}
+[9.437893] (-) TimerEvent: {}
+[9.512368] (mobotrun) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[9.526281] (mobotrun) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[9.538168] (-) TimerEvent: {}
+[9.639144] (-) TimerEvent: {}
+[9.740123] (-) TimerEvent: {}
+[9.841122] (-) TimerEvent: {}
+[9.942612] (-) TimerEvent: {}
+[10.043704] (-) TimerEvent: {}
+[10.145643] (-) TimerEvent: {}
+[10.246676] (-) TimerEvent: {}
+[10.347629] (-) TimerEvent: {}
+[10.371222] (mobotrun) StdoutLine: {'line': b'-- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)\n'}
+[10.447861] (-) TimerEvent: {}
+[10.551088] (-) TimerEvent: {}
+[10.652179] (-) TimerEvent: {}
+[10.753248] (-) TimerEvent: {}
+[10.854203] (-) TimerEvent: {}
+[10.930173] (mobotrun) StdoutLine: {'line': b'-- Configuring done\n'}
+[10.954469] (-) TimerEvent: {}
+[10.981026] (mobotrun) StdoutLine: {'line': b'-- Generating done\n'}
+[10.989641] (mobotrun) StdoutLine: {'line': b'-- Build files have been written to: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun\n'}
+[11.035497] (mobotrun) CommandEnded: {'returncode': 0}
+[11.041584] (mobotrun) JobProgress: {'identifier': 'mobotrun', 'progress': 'build'}
+[11.066188] (mobotrun) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun', '--', '-j6', '-l6'], 'cwd': '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'fiborobotlab'), ('SSH_AGENT_PID', '2908'), ('XDG_SESSION_TYPE', 'x11'), ('GSCAM_CONFIG', 'v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-raw, width=320, height=240, framerate=30/1 ! videoconvert ! video/x-raw, format=BGRx'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fiborobotlab/unitree_foxy/install/unitree_legged_real/lib:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib:/home/fiborobotlab/unitree_foxy/install/gscam2/lib:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:'), ('HOME', '/home/fiborobotlab'), ('OLDPWD', '/home/fiborobotlab/Metamobot_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('JETSON_L4T', '35.1.0'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('MANAGERPID', '2504'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install:/home/fiborobotlab/unitree_foxy/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'fiborobotlab'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421222040726'), ('JOURNAL_STREAM', '7:56411'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'fiborobotlab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/fiborobotlab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/2974,unix/ubuntu:/tmp/.ICE-unix/2974'), ('INVOCATION_ID', 'cf0609d1b0bd4b5085520ea0969700eb'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/cfcb043f_dac1_4ace_947b_b5b4cf96259c'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('GNOME_TERMINAL_SERVICE', ':1.90'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/home/fiborobotlab/unitree_foxy/install/hand_detection:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('JETSON_JETPACK', '5.0.2 GA'), ('CMAKE_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/hand_detection:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[11.079030] (-) TimerEvent: {}
+[11.185245] (-) TimerEvent: {}
+[11.286417] (-) TimerEvent: {}
+[11.353720] (mobotrun) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target cpp_node_test\x1b[0m\n'}
+[11.386696] (-) TimerEvent: {}
+[11.433063] (mobotrun) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/cpp_node_test.dir/src/cpp_node.cpp.o\x1b[0m\n'}
+[11.486926] (-) TimerEvent: {}
+[11.588025] (-) TimerEvent: {}
+[11.689111] (-) TimerEvent: {}
+[11.790278] (-) TimerEvent: {}
+[11.891368] (-) TimerEvent: {}
+[11.992399] (-) TimerEvent: {}
+[12.093548] (-) TimerEvent: {}
+[12.194725] (-) TimerEvent: {}
+[12.295835] (-) TimerEvent: {}
+[12.397100] (-) TimerEvent: {}
+[12.498496] (-) TimerEvent: {}
+[12.599619] (-) TimerEvent: {}
+[12.700794] (-) TimerEvent: {}
+[12.802210] (-) TimerEvent: {}
+[12.903466] (-) TimerEvent: {}
+[13.004696] (-) TimerEvent: {}
+[13.105827] (-) TimerEvent: {}
+[13.126262] (mobotrun) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable cpp_node_test\x1b[0m\n'}
+[13.206090] (-) TimerEvent: {}
+[13.307096] (-) TimerEvent: {}
+[13.408140] (-) TimerEvent: {}
+[13.509351] (-) TimerEvent: {}
+[13.610395] (-) TimerEvent: {}
+[13.711529] (-) TimerEvent: {}
+[13.746049] (mobotrun) StdoutLine: {'line': b'[100%] Built target cpp_node_test\n'}
+[13.811855] (-) TimerEvent: {}
+[13.828072] (mobotrun) CommandEnded: {'returncode': 0}
+[13.912605] (-) TimerEvent: {}
+[14.014749] (-) TimerEvent: {}
+[14.025933] (mobotrun) JobProgress: {'identifier': 'mobotrun', 'progress': 'install'}
+[14.118236] (-) TimerEvent: {}
+[14.129824] (mobotrun) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun'], 'cwd': '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'fiborobotlab'), ('SSH_AGENT_PID', '2908'), ('XDG_SESSION_TYPE', 'x11'), ('GSCAM_CONFIG', 'v4l2src device=/dev/video0 ! videoconvert ! videoscale ! video/x-raw, width=320, height=240, framerate=30/1 ! videoconvert ! video/x-raw, format=BGRx'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/fiborobotlab/unitree_foxy/install/unitree_legged_real/lib:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib:/home/fiborobotlab/unitree_foxy/install/gscam2/lib:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda-11.4/lib64:'), ('HOME', '/home/fiborobotlab'), ('OLDPWD', '/home/fiborobotlab/Metamobot_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('JETSON_L4T', '35.1.0'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('JETSON_MODEL', 'NVIDIA Jetson Xavier NX Developer Kit'), ('MANAGERPID', '2504'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install:/home/fiborobotlab/unitree_foxy/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'fiborobotlab'), ('JETSON_MODULE', 'NVIDIA Jetson Xavier NX (16GB ram)'), ('JETSON_SERIAL_NUMBER', '1421222040726'), ('JOURNAL_STREAM', '7:56411'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Jakku'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'fiborobotlab'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda-11.4/bin:/home/fiborobotlab/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu:@/tmp/.ICE-unix/2974,unix/ubuntu:/tmp/.ICE-unix/2974'), ('INVOCATION_ID', 'cf0609d1b0bd4b5085520ea0969700eb'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/cfcb043f_dac1_4ace_947b_b5b4cf96259c'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra194'), ('GNOME_TERMINAL_SERVICE', ':1.90'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/home/fiborobotlab/unitree_foxy/install/hand_detection:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('QT_IM_MODULE', 'ibus'), ('JETSON_CUDA_ARCH_BIN', '7.2'), ('PWD', '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces/lib/python3.8/site-packages:/home/fiborobotlab/unitree_foxy/install/ros2_aruco/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('COLCON', '1'), ('VTE_VERSION', '6003'), ('JETSON_JETPACK', '5.0.2 GA'), ('CMAKE_PREFIX_PATH', '/home/fiborobotlab/Metamobot_ws/install/mobotrun:/home/fiborobotlab/unitree_foxy/install/unitree_legged_real:/home/fiborobotlab/unitree_foxy/install/ros2_unitree_legged_msgs:/home/fiborobotlab/unitree_foxy/install/gscam2:/home/fiborobotlab/unitree_foxy/install/ros2_shared:/home/fiborobotlab/unitree_foxy/install/ros2_aruco_interfaces:/home/fiborobotlab/unitree_foxy/install/hand_detection:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3668-0003')]), 'shell': False}
+[14.199274] (mobotrun) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[14.200470] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/pythonpath.sh\n'}
+[14.201786] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/pythonpath.dsv\n'}
+[14.203144] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun\n'}
+[14.203917] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/__init__.py\n'}
+[14.204668] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/dummy_module.py\n'}
+[14.216989] (-) TimerEvent: {}
+[14.318345] (-) TimerEvent: {}
+[14.382387] (mobotrun) StdoutLine: {'line': b"Listing '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun'...\n"}
+[14.383155] (mobotrun) StdoutLine: {'line': b"Compiling '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/__init__.py'...\n"}
+[14.383600] (mobotrun) StdoutLine: {'line': b"Compiling '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/dummy_module.py'...\n"}
+[14.400598] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/dummy_script.py\n'}
+[14.401768] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mobility.py\n'}
+[14.403988] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/cpp_node_test\n'}
+[14.412261] (mobotrun) StdoutLine: {'line': b'-- Set runtime path of "/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/cpp_node_test" to ""\n'}
+[14.416984] (mobotrun) StdoutLine: {'line': b'-- Up-to-date: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun\n'}
+[14.417855] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/package_run_dependencies/mobotrun\n'}
+[14.418692] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/parent_prefix_path/mobotrun\n'}
+[14.419203] (-) TimerEvent: {}
+[14.420218] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/ament_prefix_path.sh\n'}
+[14.421880] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/ament_prefix_path.dsv\n'}
+[14.423095] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/path.sh\n'}
+[14.424237] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/path.dsv\n'}
+[14.425614] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.bash\n'}
+[14.426511] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.sh\n'}
+[14.427584] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.zsh\n'}
+[14.429637] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.dsv\n'}
+[14.430959] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/package.dsv\n'}
+[14.431803] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/packages/mobotrun\n'}
+[14.433225] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/cmake/mobotrunConfig.cmake\n'}
+[14.434154] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/cmake/mobotrunConfig-version.cmake\n'}
+[14.435351] (mobotrun) StdoutLine: {'line': b'-- Installing: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/package.xml\n'}
+[14.449451] (mobotrun) CommandEnded: {'returncode': 0}
+[14.519868] (-) TimerEvent: {}
+[14.621693] (-) TimerEvent: {}
+[14.724106] (-) TimerEvent: {}
+[14.808121] (mobotrun) JobEnded: {'identifier': 'mobotrun', 'rc': 0}
+[14.812550] (-) EventReactorShutdown: {}
