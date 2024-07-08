@@ -3,7 +3,8 @@
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/__init__.py
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/dummy_module.py
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/dummy_script.py
-/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mobility.py
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mobility_node.py
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mqtt_node.py
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/cpp_node_test
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/package_run_dependencies/mobotrun
 /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/parent_prefix_path/mobotrun

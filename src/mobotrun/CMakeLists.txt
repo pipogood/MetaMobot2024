@@ -28,7 +28,8 @@ ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
   scripts/dummy_script.py
-  scripts/mobility.py
+  scripts/mobility_node.py
+  scripts/mqtt_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
