@@ -28,10 +28,10 @@ from dxl_address import *
 class Mobility:
     def __init__(self): 
         # Wheel parameters
-        self.wheel_Lx = 0.45
-        self.wheel_Ly = 0.3
-        self.wheel_R = 0.04
-        self.wheel_K = 40.92
+        self.wheel_Lx = 0.23
+        self.wheel_Ly = 0.20
+        self.wheel_R = 0.06
+        self.wheel_K = 40.92 # gain value to 1023 (max value of moving speed)
         self.DXLACC = 5
         self.eqm = np.array([[1, 1, -(self.wheel_Lx+self.wheel_Ly)], [1, -1, (self.wheel_Lx+self.wheel_Ly)], [1, -1, -(self.wheel_Lx+self.wheel_Ly)], [1, 1, (self.wheel_Lx+self.wheel_Ly)]])
 
@@ -57,13 +57,7 @@ class Mobility:
             quit()
 
         for id in range(1, 5):
-            dxl_comm_result, dxl_error = self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_ENABLE)
-            if dxl_comm_result != COMM_SUCCESS:
-                print("%s" % self.packetHandler.getTxRxResult(dxl_comm_result))
-            elif dxl_error != 0:
-                print("%s" % self.packetHandler.getRxPacketError(dxl_error))
-            else:
-                print("Dynamixel#%d torque has been enable" % id)
+
             dxl_comm_result, dxl_error = self.packetHandler.write2ByteTxRx(self.portHandler, id, ADDR_MX_CW_ANGLE_LIMIT, DXL_CW_ANGLE_TO_Z)
 
             if dxl_comm_result != COMM_SUCCESS:
@@ -121,14 +115,14 @@ class Mobility:
         temp = np.zeros(4)
         load = np.zeros(4)
         for id in range(1, 5):
-            temp[id-1] = packetHandler.read1ByteTxRx(portHandler, id, ADDR_MX_PRESENT_TEMPERATURE)
-            load[id-1] = packetHandler.read2ByteTxRx(portHandler, id, ADDR_MX_PRESENT_LOAD)
+            temp[id-1] = self.packetHandler.read1ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_TEMPERATURE)[0]
+            load[id-1] = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_LOAD)[0]
 
         status = (
-            f"dxl1: {temp[0]}, {load[0]}\n"
-            f"dxl2: {temp[1]}, {load[1]}\n"
-            f"dxl3: {temp[2]}, {load[2]}\n"
-            f"dxl4: {temp[3]}, {load[3]}\n"
+            f"DXL1_temp&load: {temp[0]}, {load[0]}\n"
+            f"DXL2_temp&load: {temp[1]}, {load[1]}\n"
+            f"DXL3_temp&load: {temp[2]}, {load[2]}\n"
+            f"DXL4_temp&load: {temp[3]}, {load[3]}\n"
         )
 
         return status
@@ -139,38 +133,60 @@ class Mobility:
         wheel_vel = np.absolute(wheel_vel)
         findK = np.max(wheel_vel)
 
+        # print("before normalize", wheel_vel)
+
         if findK != 0:
             self.wheel_K = 1023/findK 
         else:
             self.wheel_K = 0
+
 
         wheel_vel = ((1/self.wheel_R)*self.eqm).dot((robot_vel))*self.wheel_K*math.sqrt((Vx*Vx)+(Vy*Vy))
 
         if Vx == 0 and Vy == 0 and Wz != 0:
             wheel_vel = ((1/self.wheel_R)*self.eqm).dot((robot_vel))*10
 
+        # print("after normalize", wheel_vel)
 
-        W1 = np.clip(int(math.floor(wheel_vel[0])),-1023, 1023) #0-1023 CCW direction
+
+        W1 = np.clip(int(math.floor(wheel_vel[0])),-1024, 1024) #CW direction: 1024-2046 to move forward
         if(W1 < 0):
-            W1 = abs(W1)+1023
+            W1 = abs(W1)
+        else:
+            W1 = W1+1024
 
-        W2 = np.clip(int(math.floor(wheel_vel[1])),-1023, 1023) #1024-2046 CW direction
+        W2 = np.clip(int(math.floor(wheel_vel[1])),-1024, 1024) #CCW direction 0-1023 to move forward 
         if(W2 < 0):
-            W2 = abs(W2)
-        else:
-            W2 = W2+1023
+            W2 = abs(W2) +1024
       
-        W3 = np.clip(int(math.floor(wheel_vel[2])),-1023, 1023) #0-1023
+        W3 = np.clip(int(math.floor(wheel_vel[2])),-1024, 1024) #CW direction: 1024-2046 to move forward
         if(W3 < 0):
-            W3 = abs(W3) +1023
-      
-        W4 = np.clip(int(math.floor(wheel_vel[3])),-1023, 1023) #1024-2046
-        if(W4 < 0):
-            W4 = abs(W4)
+            W3 = abs(W3)
         else:
-            W4 = W4+1023
+            W3 = W3+1024
+      
+        W4 = np.clip(int(math.floor(wheel_vel[3])),-1024, 1024) #CCW direction 0-1023 to move forward 
+        if(W4 < 0):
+            W4 = abs(W4) +1024
+
+
+        if Vx == 0 and Vy == 0 and Wz == 0: #Force Stop
+            W1 = 0
+            W2 = 0
+            W3 = 0
+            W4 = 0
+
+        print(f"cal each wheel of velo", {W1}, {W2}, {W3}, {W4})
+        out_vel = [W1, W2, W3, W4]
 
         for id in range(1, 5):
             self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_ENABLE)
+
+        for id in range(1, 5):
             self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_GOAL_ACCELERATION, self.DXLACC)
-            self.packetHandler.write2ByteTxRx(self.portHandler, id, ADDR_MX_MOVING_SPEED, W1)
+            self.packetHandler.write2ByteTxRx(self.portHandler, id, ADDR_MX_MOVING_SPEED, out_vel[id-1])
+
+        if Vx == 0 and Vy == 0 and Wz == 0:
+            for id in range(1, 5):
+                print("disable torque")
+                self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_DISABLE)

@@ -1,0 +1,1 @@
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/scripts/manipulator_node.py

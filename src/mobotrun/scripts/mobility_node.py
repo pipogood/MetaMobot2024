@@ -8,12 +8,16 @@ from std_msgs.msg import Float32MultiArray, Float64MultiArray
 from std_msgs.msg import String
 from std_msgs.msg import Bool
 import json
+from rclpy import qos
+from rclpy.qos import QoSProfile
 
 class MobilityNode(Node):
     def __init__(self):
-        print("node int oh YEAH")
+        print("node int mobility")
         super().__init__('Mobility_node')
         self.MobiFunction = Mobility()
+        Streaming = QoSProfile(durability=qos.QoSDurabilityPolicy.VOLATILE,
+                           reliability=qos.QoSReliabilityPolicy.BEST_EFFORT, history=qos.QoSHistoryPolicy.KEEP_LAST, depth=1)
         self.vx = 0.0
         self.vy = 0.0
         self.wz = 0.0
@@ -21,10 +25,10 @@ class MobilityNode(Node):
         self.status = ""
         self.timer_period = 0.1
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
-        self.dxlvel_publisher = self.create_publisher(Float32MultiArray,'mobility/feedback/velocity',10)
-        self.status_publisher = self.create_publisher(String,'mobility/feedback/temp',10)
-        self.velo_subscription = self.create_subscription(String,'mobility/input/velocity',self.Drivedxl,10)
-        self.stop_subscription = self.create_subscription(String,'mobility/stop',self.Stopdxl,10)
+        self.dxlvel_publisher = self.create_publisher(Float32MultiArray,'mobility/feedback/velocity',Streaming)
+        self.status_publisher = self.create_publisher(String,'mobility/feedback/temp',Streaming)
+        self.velo_subscription = self.create_subscription(String,'mobility/input/velocity',self.Drivedxl,Streaming)
+        self.stop_subscription = self.create_subscription(String,'mobility/stop',self.Stopdxl,Streaming)
         
     def timer_callback(self):
         self.current_vel = self.MobiFunction.GetVelocity() 
@@ -33,8 +37,11 @@ class MobilityNode(Node):
         send_velocity = Float32MultiArray()
         send_status = String()
 
-        send_velocity.data = self.current_vel
+
+        send_velocity.data = [self.current_vel[0][0], self.current_vel[1][0], self.current_vel[2][0]]
         send_status.data = self.status
+
+        # print(send_velocity)
 
         self.dxlvel_publisher.publish(send_velocity)
         self.status_publisher.publish(send_status)
@@ -43,8 +50,10 @@ class MobilityNode(Node):
     def Drivedxl(self, msg:String):
         self.st = json.loads(msg.data)
         self.vx = self.st["mobi_vx"]
-        self.vy = self.st["mobi_vy"] *-1
+        self.vy = self.st["mobi_vy"]
         self.wz = self.st["mobi_w"]
+
+        print("recieve vel: ", self.vx, " ", self.vy, " ", self.wz)
 
         self.MobiFunction.SetWheelVelocity(Vx = self.vx, Vy = self.vy, Wz= self.wz)
 

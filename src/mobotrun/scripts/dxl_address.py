@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 # Parameter setting
-DXL1_ID                        = 1                 # Dynamixel#1 ID : 1
-DXL2_ID                        = 2                 # Dynamixel#2 ID : 2
-DXL3_ID                        = 3                 # Dynamixel#3 ID : 3
-DXL4_ID                        = 4                 # Dynamixel#4 ID : 4
+DXL1_ID                        = 1                 # Dynamixel#1 ID : 1 back-right CW
+DXL2_ID                        = 2                 # Dynamixel#2 ID : 2 back-left CCW
+DXL3_ID                        = 3                 # Dynamixel#3 ID : 3 front-right CW
+DXL4_ID                        = 4                 # Dynamixel#4 ID : 4 front-left CCWs
 BAUDRATE                       = 57600             # Dynamixel default baudrate : 57600
 DEVICENAME                     = '/dev/ttyUSB1'    # Port connected to controller
 TORQUE_ENABLE                  = 1                 # Value for enabling the torque

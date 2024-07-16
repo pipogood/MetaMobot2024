@@ -30,6 +30,7 @@ install(PROGRAMS
   scripts/dummy_script.py
   scripts/mobility_node.py
   scripts/mqtt_node.py
+  scripts/manipulator_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
