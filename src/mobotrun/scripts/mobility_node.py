@@ -10,6 +10,7 @@ from std_msgs.msg import Bool
 import json
 from rclpy import qos
 from rclpy.qos import QoSProfile
+from sensor_msgs.msg import LaserScan
 
 class MobilityNode(Node):
     def __init__(self):
@@ -29,7 +30,11 @@ class MobilityNode(Node):
         self.status_publisher = self.create_publisher(String,'mobility/feedback/temp',Streaming)
         self.velo_subscription = self.create_subscription(String,'mobility/input/velocity',self.Drivedxl,Streaming)
         self.stop_subscription = self.create_subscription(String,'mobility/stop',self.Stopdxl,Streaming)
-        
+
+        #Lidars
+        self.lidar1_subscription = self.create_subscription(LaserScan,'/lidar0/scan',self.lidar1 ,Streaming)
+        self.lidar1_subscription = self.create_subscription(LaserScan,'/lidar1/scan',self.lidar2 ,Streaming)
+      
     def timer_callback(self):
         self.current_vel = self.MobiFunction.GetVelocity() 
         self.status = self.MobiFunction.GetTempAndLoad()
@@ -59,6 +64,13 @@ class MobilityNode(Node):
 
     def Stopdxl(self, msg:String):
         self.MobiFunction.SetWheelVelocity(Vx = 0.0, Vy = 0.0, Wz= 0.0)
+
+    
+    def lidar1(self, msg:LaserScan):
+        self.MobiFunction.computeLidar1(msg)
+
+    def lidar1(self, msg:LaserScan):
+        self.MobiFunction.computeLidar2(msg)
         
 
 def main(args=None):

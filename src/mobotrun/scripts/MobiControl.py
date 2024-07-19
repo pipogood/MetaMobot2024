@@ -148,7 +148,6 @@ class Mobility:
 
         # print("after normalize", wheel_vel)
 
-
         W1 = np.clip(int(math.floor(wheel_vel[0])),-1024, 1024) #CW direction: 1024-2046 to move forward
         if(W1 < 0):
             W1 = abs(W1)
@@ -190,3 +189,87 @@ class Mobility:
             for id in range(1, 5):
                 print("disable torque")
                 self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_DISABLE)
+
+
+    def computeLidar1(self, data):
+        count = int(math.floor(data.scan_time/data.time_increment))
+        quartierLidar1 = {}
+        for i in range (0,count):
+            if data.ranges[i] == None:
+                continue
+
+            degree = (data.angle_min + data.angle_increment * i)*57.2958
+
+            if(degree >= 90 and degree <= 180):
+                degree = degree - 90
+            elif(degree >= -180 and degree < 0):
+                degree = (180-abs(degree)) + 90
+            else:
+                degree =  270 + degree
+                
+            lidar_y = (data.ranges[i])*math.sin(degree/57.2958)
+            lidar_x = (data.ranges[i])*math.cos(degree/57.2958)
+
+            if degree > 0.5 and degree <= 270:
+
+                if lidar_x >= 0 and lidar_x < 0.35 and lidar_y > 0 and lidar_y <= 0.5:
+                    quartierLidar1['Q3']['beware'] += 1
+                    if lidar_y <= 0.25:
+                        quartierLidar1['Q3']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y >= 0 and lidar_y < 0.5:
+                    quartierLidar1['Q4']['beware'] += 1
+                    if lidar_x >= -0.25 and lidar_y <= 0.25:
+                        quartierLidar1['Q4']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -0.5 and lidar_y < 0:
+                    quartierLidar1['Q5']['beware'] += 1
+                    if lidar_y <= -0.35 and lidar_x >= -0.25 and lidar_x <= -0.05:
+                        quartierLidar1['Q5']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -1.0 and lidar_y < -0.5:
+                    quartierLidar1['Q6']['beware'] += 1
+                    if lidar_x >= -0.25 and lidar_y >= -0.75:
+                        quartierLidar1['Q6']['stop'] += 1
+
+
+    def computeLidar2(self, data):
+        count = int(math.floor(data.scan_time/data.time_increment))
+        quartierLidar2 = {}
+        for i in range (0,count):
+            if data.ranges[i] == None:
+                continue
+
+            degree = (data.angle_min + data.angle_increment * i)*57.2958
+
+            if(degree >= 90 and degree <= 180):
+                degree = degree - 90
+            elif(degree >= -180 and degree < 0):
+                degree = (180-abs(degree)) + 90
+            else:
+                degree =  270 + degree
+                
+            lidar_y = (data.ranges[i])*math.sin(degree/57.2958)
+            lidar_x = (data.ranges[i])*math.cos(degree/57.2958)
+
+            if degree > 0.5 and degree <= 270:
+
+                if lidar_x >= 0 and lidar_x < 0.35 and lidar_y > 0 and lidar_y <= 0.5:
+                    quartierLidar2['Q7']['beware'] += 1
+                    if lidar_y <= 0.25:
+                        quartierLidar1['Q7']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y >= 0 and lidar_y < 0.45:
+                    quartierLidar2['Q8']['beware'] += 1
+                    if lidar_x >= -0.25 and lidar_y <= 0.25:
+                        quartierLidar1['Q8']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -0.5 and lidar_y < 0:
+                    quartierLidar2['Q1']['beware'] += 1
+                    if lidar_x >= -0.25 and lidar_x <= -0.1:
+                        quartierLidar1['Q1']['stop'] += 1
+
+                elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -1.0 and lidar_y < 0.5:
+                    quartierLidar2['Q2']['beware'] += 1
+                    if lidar_x >= -0.25 and lidar_y >= -0.75:
+                        quartierLidar1['Q2']['stop'] += 1
