@@ -191,9 +191,17 @@ class Mobility:
                 self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_DISABLE)
 
 
+####################### Lidar ########################3
+
+class Lidar:
+    def __init__(self): 
+        pass
+
     def computeLidar1(self, data):
         count = int(math.floor(data.scan_time/data.time_increment))
-        quartierLidar1 = {}
+        template = {"beware": 0, "stop": 0, "result": "ok"}
+        quartierLidar1 = {key: template.copy() for key in ['Q3', 'Q4', 'Q5', 'Q6']}
+
         for i in range (0,count):
             if data.ranges[i] == None:
                 continue
@@ -232,10 +240,20 @@ class Mobility:
                     if lidar_x >= -0.25 and lidar_y >= -0.75:
                         quartierLidar1['Q6']['stop'] += 1
 
+        for keys in quartierLidar1:
+            if quartierLidar1[keys]['beware'] > 10:
+                quartierLidar1[keys]['result'] = "beware"
+            if quartierLidar1[keys]['stop'] > 10:
+                quartierLidar1[keys]['result'] = "stop"
+
+    return quartierLidar1
+
 
     def computeLidar2(self, data):
         count = int(math.floor(data.scan_time/data.time_increment))
-        quartierLidar2 = {}
+        template = {"beware": 0, "stop": 0, "result": "ok"}
+        quartierLidar2 = {key: template.copy() for key in ['Q7', 'Q8', 'Q1', 'Q2']}
+
         for i in range (0,count):
             if data.ranges[i] == None:
                 continue
@@ -257,19 +275,27 @@ class Mobility:
                 if lidar_x >= 0 and lidar_x < 0.35 and lidar_y > 0 and lidar_y <= 0.5:
                     quartierLidar2['Q7']['beware'] += 1
                     if lidar_y <= 0.25:
-                        quartierLidar1['Q7']['stop'] += 1
+                        quartierLidar2['Q7']['stop'] += 1
 
                 elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y >= 0 and lidar_y < 0.45:
                     quartierLidar2['Q8']['beware'] += 1
                     if lidar_x >= -0.25 and lidar_y <= 0.25:
-                        quartierLidar1['Q8']['stop'] += 1
+                        quartierLidar2['Q8']['stop'] += 1
 
                 elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -0.5 and lidar_y < 0:
                     quartierLidar2['Q1']['beware'] += 1
                     if lidar_x >= -0.25 and lidar_x <= -0.1:
-                        quartierLidar1['Q1']['stop'] += 1
+                        quartierLidar2['Q1']['stop'] += 1
 
                 elif lidar_x >= -0.5 and lidar_x < 0 and lidar_y > -1.0 and lidar_y < 0.5:
                     quartierLidar2['Q2']['beware'] += 1
                     if lidar_x >= -0.25 and lidar_y >= -0.75:
-                        quartierLidar1['Q2']['stop'] += 1
+                        quartierLidar2['Q2']['stop'] += 1
+
+        for keys in quartierLidar2:
+            if quartierLidar2[keys]['beware'] > 10:
+                quartierLidar2[keys]['result'] = "beware"
+            if quartierLidar2[keys]['stop'] > 10:
+                quartierLidar2[keys]['result'] = "stop"
+
+    return quartierLidar2
