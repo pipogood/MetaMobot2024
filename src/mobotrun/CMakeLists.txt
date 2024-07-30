@@ -31,6 +31,7 @@ install(PROGRAMS
   scripts/mobility_node.py
   scripts/mqtt_node.py
   scripts/manipulator_node.py
+  scripts/lidar_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

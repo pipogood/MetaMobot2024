@@ -15,6 +15,7 @@ import json
 from open_manipulator_msgs.msg import KinematicsPose
 from sensor_msgs.msg import JointState
 from open_manipulator_msgs.srv import *
+import time
 
 class ManipulatorNode(Node):
     def __init__(self):
@@ -24,6 +25,9 @@ class ManipulatorNode(Node):
         self.send_joint = Float32MultiArray()
         self.send_pose.data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
         self.send_joint.data = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.last_message_time = time.time()
+        self.flag_timeout = False
+
         Streaming = QoSProfile(durability=qos.QoSDurabilityPolicy.VOLATILE,
                            reliability=qos.QoSReliabilityPolicy.BEST_EFFORT, history=qos.QoSHistoryPolicy.KEEP_LAST, depth=1)
         
@@ -37,16 +41,27 @@ class ManipulatorNode(Node):
         self.mani_joint_subscription = self.create_subscription(JointState,'/joint_states',self.mani_joint,Streaming)
 
     def timer_callback(self):
+
+        current_time = time.time()
+        if current_time - self.last_message_time > 1.0:
+            self.vx = 0
+            self.vy = 0
+            self.vz = 0
+            self.flag_timeout = False ###Change to True later
+
         self.mani_publish_pose.publish(self.send_pose)
         self.mani_publish_joint.publish(self.send_joint)
 
     def mani_control(self, msg:String):
-        self.st = json.loads(msg.data)
-        self.mode = self.st["mode"]
-        if self.mode == "joint":
-            pass
-        else:
-            pass
+        self.last_message_time = time.time()
+
+        if self.flag_timeout == False:
+            self.st = json.loads(msg.data)
+            self.mode = self.st["mode"]
+            if self.mode == "joint":
+                pass
+            else:
+                pass
 
 
     def mani_pose(self, msg:KinematicsPose):

@@ -1,0 +1,1 @@
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/scripts/lidar_node.py

@@ -1,0 +1,46 @@
+[0.106s] Invoking command in '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy /usr/bin/cmake --build /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun -- -j6 -l6
+[0.372s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.540s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.686s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.761s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[2.054s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.081s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[2.904s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.226s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[3.240s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.983s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[4.407s] -- Configuring done
+[4.463s] -- Generating done
+[4.474s] -- Build files have been written to: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun
+[4.783s] [100%] Built target cpp_node_test
+[4.866s] Invoked command in '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy /usr/bin/cmake --build /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun -- -j6 -l6
+[5.257s] Invoking command in '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy /usr/bin/cmake --install /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun
+[5.321s] -- Install configuration: ""
+[5.325s] -- Execute custom install script
+[5.329s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/pythonpath.sh
+[5.331s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/pythonpath.dsv
+[5.336s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/__init__.py
+[5.338s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun/dummy_module.py
+[5.340s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/dummy_script.py
+[5.342s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mobility_node.py
+[5.344s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/mqtt_node.py
+[5.346s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/manipulator_node.py
+[5.347s] -- Symlinking: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/lidar_node.py
+[5.420s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/mobotrun/cpp_node_test
+[5.425s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/package_run_dependencies/mobotrun
+[5.430s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/parent_prefix_path/mobotrun
+[5.436s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/ament_prefix_path.sh
+[5.438s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/ament_prefix_path.dsv
+[5.444s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/path.sh
+[5.447s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/environment/path.dsv
+[5.452s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.bash
+[5.455s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.sh
+[5.458s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.zsh
+[5.460s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/local_setup.dsv
+[5.461s] -- Symlinking: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/package.dsv
+[5.535s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/ament_index/resource_index/packages/mobotrun
+[5.541s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/cmake/mobotrunConfig.cmake
+[5.543s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/cmake/mobotrunConfig-version.cmake
+[5.548s] -- Up-to-date symlink: /home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/share/mobotrun/package.xml
+[5.758s] Listing '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/install/mobotrun/lib/python3.8/site-packages/mobotrun'...
+[5.818s] Invoked command in '/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/fiborobotlab/unitree_foxy/install/ros2_aruco:/opt/ros/foxy /usr/bin/cmake --install /home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun

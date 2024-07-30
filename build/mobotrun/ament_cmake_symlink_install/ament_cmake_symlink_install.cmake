@@ -319,8 +319,8 @@ ament_cmake_symlink_install_files("/home/fiborobotlab/Metamobot_ws/MetaMobot2024
 # install(DIRECTORY "/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/mobotrun/" "DESTINATION" "lib/python3.8/site-packages/mobotrun" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
 ament_cmake_symlink_install_directory("/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun" DIRECTORY "/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/mobotrun/" "DESTINATION" "lib/python3.8/site-packages/mobotrun" "PATTERN_EXCLUDE" "*.pyc" "PATTERN_EXCLUDE" "__pycache__")
 
-# install(PROGRAMS "scripts/dummy_script.py" "scripts/mobility_node.py" "scripts/mqtt_node.py" "scripts/manipulator_node.py" "DESTINATION" "lib/mobotrun")
-ament_cmake_symlink_install_programs("/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun" PROGRAMS "scripts/dummy_script.py" "scripts/mobility_node.py" "scripts/mqtt_node.py" "scripts/manipulator_node.py" "DESTINATION" "lib/mobotrun")
+# install(PROGRAMS "scripts/dummy_script.py" "scripts/mobility_node.py" "scripts/mqtt_node.py" "scripts/manipulator_node.py" "scripts/lidar_node.py" "DESTINATION" "lib/mobotrun")
+ament_cmake_symlink_install_programs("/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun" PROGRAMS "scripts/dummy_script.py" "scripts/mobility_node.py" "scripts/mqtt_node.py" "scripts/manipulator_node.py" "scripts/lidar_node.py" "DESTINATION" "lib/mobotrun")
 
 # install("TARGETS" "cpp_node_test" "DESTINATION" "lib/mobotrun")
 include("/home/fiborobotlab/Metamobot_ws/MetaMobot2024/build/mobotrun/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
