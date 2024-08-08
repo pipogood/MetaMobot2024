@@ -28,30 +28,34 @@ class Lidar(Node):
         self.x_detect = 0.0
         self.y_detect = 0.0
         self.degree_detect = 0.0
+        self.mobi_direct = (-1,1)
         self.lidar_detect = ''
+
+        self.send_lidar = Float32MultiArray()
 
         Streaming = QoSProfile(durability=qos.QoSDurabilityPolicy.VOLATILE,
                            reliability=qos.QoSReliabilityPolicy.BEST_EFFORT, history=qos.QoSHistoryPolicy.KEEP_LAST, depth=1)
         
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.timer = self.create_timer(0.05, self.main)
 
-        #Lidars
         self.lidar_mobi_publisher = self.create_publisher(Float32MultiArray,'/lidar/mobility',Streaming)
         self.lidar1_subscription = self.create_subscription(LaserScan,'/lidar0/scan',self.lidar1 ,Streaming)
         self.lidar2_subscription = self.create_subscription(LaserScan,'/lidar1/scan',self.lidar2 ,Streaming)
+        self.from_mobi_subscription = self.create_subscription(Float32MultiArray,'mobility/lidars',self.recieve_obstacle ,Streaming)
 
-
-    def timer_callback(self):
+    def main(self):
         if self.shortest_distance_L1 < self.shortest_distance_L2:
             self.shortest_distance = self.shortest_distance_L1
         else:
             self.shortest_distance = self.shortest_distance_L2
             
-        print("Shortest distance from ",self.lidar_detect, ": ", self.shortest_distance, "at ", self.degree_detect, self.x_detect, self.y_detect)
+        #print("Shortest distance from ",self.lidar_detect, ": ", self.shortest_distance, "at ", self.degree_detect, self.x_detect, self.y_detect)
 
-        send_lidar = Float32MultiArray()
-        send_lidar.data = [self.shortest_distance, self.x_detect , self.y_detect]
-        self.lidar_mobi_publisher.publish(send_lidar)
+        self.send_lidar.data = [self.shortest_distance, self.x_detect , self.y_detect]
+        self.lidar_mobi_publisher.publish(self.send_lidar)
+
+    def recieve_obstacle(self, msg:Float32MultiArray):
+        self.mobi_direct = (np.sign(msg.data[0]), np.sign(msg.data[1]))
 
     def lidar1(self, msg:LaserScan):
         self.shortest_distance_L1 = 5.0  
@@ -87,11 +91,12 @@ class Lidar(Node):
                     robot_y = lidar_y + self.D1_y
 
                     if (np.sqrt(robot_x**2 + robot_y**2) < self.shortest_distance_L1) and (np.sqrt(robot_x**2 + robot_y**2) < self.shortest_distance_L2):
-                        self.shortest_distance_L1 = np.sqrt(robot_x**2 + robot_y**2)
-                        self.x_detect = robot_x
-                        self.y_detect = robot_y
-                        self.degree_detect = degree_new
-                        self.lidar_detect = "L1"
+                        if (self.mobi_direct == (np.sign(robot_x), np.sign(robot_y))):
+                            self.shortest_distance_L1 = np.sqrt(robot_x**2 + robot_y**2)
+                            self.x_detect = robot_x
+                            self.y_detect = robot_y
+                            self.degree_detect = degree_new
+                            self.lidar_detect = "L1"
 
     def lidar2(self, msg:LaserScan):
         self.shortest_distance_L2 = 5.0
@@ -113,8 +118,9 @@ class Lidar(Node):
             else:
                 degree_new =  np.abs(degree) + 270
 
-
-            if (degree_new >= 0 and degree_new <= 100): #Igore degree which detect robot
+            if (degree_new >= 0 and degree_new <= 110): #Igore degree which detect robot
+                pass
+            elif (degree_new >= 340 and degree_new <= 360):
                 pass
             else:
                 if math.isinf(data.ranges[i]) == False:
@@ -127,11 +133,12 @@ class Lidar(Node):
                     robot_y = lidar_y - self.D2_y
 
                     if (np.sqrt(robot_x**2 + robot_y**2) < self.shortest_distance_L1) and (np.sqrt(robot_x**2 + robot_y**2) < self.shortest_distance_L2):
-                        self.shortest_distance_L2 = np.sqrt(robot_x**2 + robot_y**2)
-                        self.x_detect = robot_x
-                        self.y_detect = robot_y
-                        self.degree_detect = degree_new
-                        self.lidar_detect = "L2"            
+                        if (self.mobi_direct == (np.sign(robot_x), np.sign(robot_y))):
+                            self.shortest_distance_L2 = np.sqrt(robot_x**2 + robot_y**2)
+                            self.x_detect = robot_x
+                            self.y_detect = robot_y
+                            self.degree_detect = degree_new
+                            self.lidar_detect = "L2"            
 
 def main(args=None):
     rclpy.init(args=args)

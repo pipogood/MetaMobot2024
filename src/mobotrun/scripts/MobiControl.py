@@ -117,13 +117,7 @@ class Mobility:
         for id in range(1, 5):
             temp[id-1] = self.packetHandler.read1ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_TEMPERATURE)[0]
             load[id-1] = self.packetHandler.read2ByteTxRx(self.portHandler, id, ADDR_MX_PRESENT_LOAD)[0]
-
-        status = (
-            f"DXL1_temp&load: {temp[0]}, {load[0]}\n"
-            f"DXL2_temp&load: {temp[1]}, {load[1]}\n"
-            f"DXL3_temp&load: {temp[2]}, {load[2]}\n"
-            f"DXL4_temp&load: {temp[3]}, {load[3]}\n"
-        )
+        status = [temp[0], load[0], temp[1], load[1], temp[2], load[2], temp[3], load[3]]
 
         return status
         
@@ -132,8 +126,6 @@ class Mobility:
         wheel_vel = ((1/self.wheel_R)*self.eqm).dot((robot_vel))
         wheel_vel = np.absolute(wheel_vel)
         findK = np.max(wheel_vel)
-
-        # print("before normalize", wheel_vel)
 
         if findK != 0:
             self.wheel_K = 1023/findK 
@@ -145,8 +137,6 @@ class Mobility:
 
         if Vx == 0 and Vy == 0 and Wz != 0:
             wheel_vel = ((1/self.wheel_R)*self.eqm).dot((robot_vel))*10
-
-        # print("after normalize", wheel_vel)
 
         W1 = np.clip(int(math.floor(wheel_vel[0])),-1024, 1024) #CW direction: 1024-2046 to move forward
         if(W1 < 0):
@@ -175,7 +165,7 @@ class Mobility:
             W3 = 0
             W4 = 0
 
-        print(f"cal each wheel of velo", {W1}, {W2}, {W3}, {W4})
+        # print(f"cal each wheel of velo", {W1}, {W2}, {W3}, {W4})
         out_vel = [W1, W2, W3, W4]
 
         for id in range(1, 5):
@@ -187,5 +177,5 @@ class Mobility:
 
         if Vx == 0 and Vy == 0 and Wz == 0:
             for id in range(1, 5):
-                print("disable torque")
+                # print("disable torque")
                 self.packetHandler.write1ByteTxRx(self.portHandler, id, ADDR_MX_TORQUE_ENABLE, TORQUE_DISABLE)

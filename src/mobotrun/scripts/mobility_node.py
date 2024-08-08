@@ -2,7 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
-from MobiControl import Mobility, Lidar
+from MobiControl import Mobility
 import sys, os, yaml
 from std_msgs.msg import Float32MultiArray, Float64MultiArray
 from std_msgs.msg import String
@@ -35,40 +35,52 @@ class MobilityNode(Node):
         self.Lidar_status = "OK"
 
         self.current_vel = []
-        self.mobi_status = ""
-        self.timer_period = 0.1
-        self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        self.mobi_status = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+        self.send_velocity = Float32MultiArray()
+        self.send_mobi_status = Float32MultiArray()
+        self.send_to_lidar = Float32MultiArray()
+        self.send_lidar_touser = Float32MultiArray()
+
+        self.timer = self.create_timer(0.1, self.main)
+
         self.dxlvel_publisher = self.create_publisher(Float32MultiArray,'mobility/feedback/velocity',Streaming)
-        self.status_publisher = self.create_publisher(String,'mobility/feedback/temp',Streaming)
+        self.status_publisher = self.create_publisher(Float32MultiArray,'mobility/feedback/status',Streaming)
 
         self.velo_subscription = self.create_subscription(String,'mobility/input/velocity',self.Drivedxl,Streaming)
         self.stop_subscription = self.create_subscription(String,'mobility/stop',self.Stopdxl,Streaming)
 
         #Lidars
-        self.lidar_publisher = self.create_publisher(String,'lidars/status',Streaming)
+        self.lidar_publisher = self.create_publisher(Float32MultiArray,'lidars/status',Streaming)
+        self.mobi_to_lidar_publisher = self.create_publisher(Float32MultiArray,'mobility/lidars',Streaming)
         self.lidar_subscription = self.create_subscription(Float32MultiArray,'/lidar/mobility',self.get_lidar ,Streaming)
       
-    def timer_callback(self):
-
+    def main(self):
         current_time = time.time()
-        if current_time - self.last_message_time > 1.0:
-            self.vx = 0
-            self.vy = 0
-            self.vz = 0
-            self.MobiFunction.SetWheelVelocity(Vx = self.vx, Vy = self.vy, Wz= self.wz)
-            self.flag_timeout = False ###Change to True later
+
+        # if current_time - self.last_message_time > 1.0:
+        #     self.MobiFunction.SetWheelVelocity(Vx = 0.0, Vy = 0.0, Wz= 0.0)
+
+        # else:
+
+        self.check_obstacle_direct()
+
+        #Set mobi direction in vx,vy,wz that recieve from callback
+        self.MobiFunction.SetWheelVelocity(Vx = self.vx, Vy = self.vy, Wz= self.wz)
 
         self.current_vel = self.MobiFunction.GetVelocity() 
         self.mobi_status = self.MobiFunction.GetTempAndLoad()
 
-        send_velocity = Float32MultiArray()
-        send_status = String()
+        self.send_velocity.data = [self.current_vel[0][0], self.current_vel[1][0], self.current_vel[2][0]]
+        self.send_mobi_status.data = self.mobi_status
+        self.send_lidar_touser.data = [self.Lidar_distance, self.Lidar_xsign, self.Lidar_ysign]
+        self.send_to_lidar.data = [float(self.vx), float(self.vy)]
 
-        send_velocity.data = [self.current_vel[0][0], self.current_vel[1][0], self.current_vel[2][0]]
-        send_status.data = self.mobi_status
+        self.dxlvel_publisher.publish(self.send_velocity)
+        self.status_publisher.publish(self.send_mobi_status)
+        self.lidar_publisher.publish(self.send_lidar_touser)
 
-        self.dxlvel_publisher.publish(send_velocity)
-        self.status_publisher.publish(send_status)
+        self.mobi_to_lidar_publisher.publish(self.send_to_lidar) #to lidar node
 
 
     def Drivedxl(self, msg:String):
@@ -80,36 +92,40 @@ class MobilityNode(Node):
             self.vy = self.st["mobi_vy"]
             self.wz = self.st["mobi_w"]
 
-            obstacle_direct = (np.sign(self.Lidar_xsign), np.sign(self.Lidar_ysign))
-            control_direct = (np.sign(self.vx), np.sign(self.vy))
-
-            if self.Lidar_distance < self.Lidar_warn_distance:
-                self.Lidar_status = "beware"
-                if control_direct == obstacle_direct:
-                    self.vx = self.vx/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
-                    self.vy = self.vy/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
-                    self.wz = self.wz/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
-
-            elif self.Lidar_distance < self.Lidar_stop_distance:
-                self.Lidar_status = "stop"
-                if control_direct == obstacle_direct:
-                    self.vx = 0.0
-                    self.vy = 0.0
-                    self.wz = 0.0
-
-            elif self.Lidar_distance > self.Lidar_warn_distance:
-                self.Lidar_status = "OK"
-
             print("recieve vel: ", self.vx, " ", self.vy, " ", self.wz)
-            self.MobiFunction.SetWheelVelocity(Vx = self.vx, Vy = self.vy, Wz= self.wz)
 
     def Stopdxl(self, msg:String):
         self.MobiFunction.SetWheelVelocity(Vx = 0.0, Vy = 0.0, Wz= 0.0)
 
     def get_lidar(self, msg:Float32MultiArray):
-        self.Lidar_distance = msg[0]
-        self.Lidar_xsign = msg[1]
-        self.Lidar_ysign = msg[2]
+        self.Lidar_distance = msg.data[0]
+        self.Lidar_xsign = msg.data[1]
+        self.Lidar_ysign = msg.data[2]
+
+    def check_obstacle_direct(self):
+        obstacle_direct = (np.sign(self.Lidar_xsign), np.sign(self.Lidar_ysign))
+        mobi_direct = (np.sign(self.vx), np.sign(self.vy))
+
+        # print("obstacle_direction: ", obstacle_direct)
+
+        if self.Lidar_distance < self.Lidar_warn_distance:
+            self.Lidar_status = "beware"
+            if mobi_direct == obstacle_direct:
+                self.vx = self.vx/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
+                self.vy = self.vy/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
+                self.wz = self.wz/(1+((self.Lidar_warn_distance-self.Lidar_distance)*4))
+
+        elif self.Lidar_distance < self.Lidar_stop_distance:
+            self.Lidar_status = "stop"
+            if mobi_direct == obstacle_direct:
+                self.vx = 0.0
+                self.vy = 0.0
+                self.wz = 0.0
+
+        elif self.Lidar_distance > self.Lidar_warn_distance:
+            self.Lidar_status = "OK"
+
+        # print("Lidar_status: ", self.Lidar_status, self.Lidar_distance)
 
 def main(args=None):
     rclpy.init(args=args)
