@@ -4,6 +4,6 @@ Metamobot 2024: main task for control mobility and Manipulator-P via MQTT
 - Operation system: ROS2 Foxy
 - All script file are in scr/scripts
 
-Metamobot 2024 is in progress to integrate webRTC for real-time video streaming between robot and user.
+Metamobot2024 is in progress to integrate WebRTC for real-time video streaming between the robot and the user.
 
 Please see detail of the MetaMobot2023 implementation [here](https://suparach3.wordpress.com/meta-mobot/)
