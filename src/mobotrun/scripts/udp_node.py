@@ -34,6 +34,9 @@ class UdpListenerNode(Node):
         # Timer to call the receive function
         self.timer = self.create_timer(0.01, self.receive_udp_data)
 
+
+        
+
     def receive_udp_data(self):
         try:
             # Non-blocking check for UDP data
