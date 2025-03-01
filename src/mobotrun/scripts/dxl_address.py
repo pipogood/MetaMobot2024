@@ -5,8 +5,8 @@ DXL1_ID                        = 1                 # Dynamixel#1 ID : 1 back-rig
 DXL2_ID                        = 2                 # Dynamixel#2 ID : 2 back-left CCW
 DXL3_ID                        = 3                 # Dynamixel#3 ID : 3 front-right CW
 DXL4_ID                        = 4                 # Dynamixel#4 ID : 4 front-left CCWs
+DXL_IDS                        = [DXL1_ID, DXL2_ID, DXL3_ID, DXL4_ID]
 BAUDRATE                       = 57600             # Dynamixel default baudrate : 57600
-DEVICENAME                     = '/dev/ttyUSB2'    # Port connected to controller
 TORQUE_ENABLE                  = 1                 # Value for enabling the torque
 TORQUE_DISABLE                 = 0                 # Value for disabling the torque
 DXL_MOVING_STATUS_THRESHOLD    = 20                # Dynamixel moving status threshold
@@ -18,8 +18,9 @@ DXL_MAXIMUM_SPEED_VALUE        = 1023            # and this value (note that the
 DXL_GOAL_SPEED                 = [DXL_MINIMUM_SPEED_VALUE, DXL_MAXIMUM_SPEED_VALUE]
 
 # Data Byte Length
-LEN_MX_MOVING_SPEED            = 4
-LEN_MX_PRESENT_SPEED           = 4
+LEN_MX_MOVING_SPEED            = 2
+LEN_GOAL_ACCELERATION           = 1
+LEN_PRESENT_SPEED = 2
 
 DXL_CW_ANGLE_TO_Z              = 0
 DXL_CCW_ANGLETO_Z              = 0

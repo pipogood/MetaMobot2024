@@ -32,6 +32,8 @@ install(PROGRAMS
   scripts/mqtt_node.py
   scripts/manipulator_node.py
   scripts/lidar_node.py
+  scripts/callweb.py
+  scripts/udp_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -1,0 +1,1 @@
+/home/fiborobotlab/Metamobot_ws/MetaMobot2024/src/mobotrun/scripts/udp_node.py
